@@ -1,0 +1,104 @@
+<div id="home" class="sb-nav-fixed">
+            <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+                <!-- Navbar Brand-->
+                <a class="navbar-brand ps-3" routerLink="tsr">TechnoVision</a>
+                <!-- Sidebar Toggle-->
+                <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+                <!-- Navbar Search-->
+                <!--<div class="input-group">
+                  <input class="form-control" type="text" placeholder="Cerca" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                  <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>-->
+                <form class="d-none d-md-inline-block ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+
+                  <a class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                    <a mat-button [matMenuTriggerFor]="menu" class="nav-link dropdown-toggle" role="button"><mat-icon>person</mat-icon></a>
+                    <mat-menu #menu="matMenu" class="matMenu">
+                    <button mat-menu-item  (click)="riceviComponent('pro')">Profilo</button>
+                    <a mat-menu-item  class="logout" href="http://localhost:8080/views/doLogout">Logout</a>
+                  </mat-menu>
+                </a>
+
+                <!-- Navbar-->
+
+                  <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profilo</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="doLogout">Logout</a></li>
+                        </ul>
+                    </li>-->
+
+
+            </nav>
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <app-barra-tesoreria (event)="riceviComponent($event)"></app-barra-tesoreria>
+                </div>
+                <div id="layoutSidenav_content">
+                  <div [ngSwitch]=visualizza>
+                    <ng-template *ngSwitchCase="''" [ngTemplateOutlet]="home"></ng-template>
+                    <ng-template *ngSwitchCase="'bil'" [ngTemplateOutlet]="bilancio"></ng-template>
+                    <ng-template *ngSwitchCase="'sti'" [ngTemplateOutlet]="stipendi"></ng-template>
+                    <ng-template *ngSwitchCase="'pro'" [ngTemplateOutlet]="profilo"></ng-template>
+                    <ng-template *ngSwitchDefault [ngTemplateOutlet]="home"></ng-template>
+                  </div>
+                        <ng-template #home>
+                          <video autoplay loop>
+                            <source src="assets/video.mp4" type="video/mp4">
+                            <source src="path/to/video.webm" type="video/webm">
+                            Il tuo browser non supporta il tag video.
+                          </video>
+                          <div class="container-fluid px-4">
+                            <h1 class="mt-4">Home</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Home</li>
+                            </ol>
+                          </div>
+                          <div class="grafici">
+                            <div class="grafic"><canvas id="grafico" ></canvas></div>
+                          </div>
+                        </ng-template>
+                        <ng-template #profilo>
+                          <video autoplay loop>
+                            <source src="assets/video.mp4" type="video/mp4">
+                            <source src="path/to/video.webm" type="video/webm">
+                            Il tuo browser non supporta il tag video.
+                          </video>
+                          <app-profilo></app-profilo>
+                        </ng-template>
+                        <ng-template #bilancio>
+                          <video autoplay loop>
+                            <source src="assets/video.mp4" type="video/mp4">
+                            <source src="path/to/video.webm" type="video/webm">
+                            Il tuo browser non supporta il tag video.
+                          </video>
+                          <app-bilancio></app-bilancio>
+                        </ng-template>
+                        <ng-template #stipendi>
+                          <video autoplay loop>
+                            <source src="assets/video.mp4" type="video/mp4">
+                            <source src="path/to/video.webm" type="video/webm">
+                            Il tuo browser non supporta il tag video.
+                          </video>
+                          <app-stipendi></app-stipendi>
+                        </ng-template>
+                    <footer class="py-4 bg-light mt-auto">
+                        <div class="container-fluid px-4">
+                            <div class="d-flex align-items-center justify-content-between small">
+                                <div class="text-muted">Copyright &copy; TechnoVision 2022</div>
+                                <div>
+                                    <a href="#">Privacy Policy</a>
+                                    &middot;
+                                    <a href="#">Terms &amp; Conditions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+<div>
+
+
+

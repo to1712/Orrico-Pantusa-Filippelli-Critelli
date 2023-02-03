@@ -1,0 +1,88 @@
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Dipendenti</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Gestione dipendenti</li>
+    </ol>
+  </div>
+  <div class="container"></div>
+  <div class="aggiungi">
+    <mat-form-field  appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input [(ngModel)]="nome" matInput  #input  placeholder="Inserisci nome">
+    </mat-form-field>
+      <mat-form-field  appearance="fill">
+        <mat-label>Cognome</mat-label>
+        <input [(ngModel)]="cognome" matInput  #input  placeholder="Inserisci cognome">
+    </mat-form-field>
+    <mat-form-field  appearance="fill">
+        <mat-label>Ruolo</mat-label>
+        <mat-select [(ngModel)]="ruolo">
+          <mat-option *ngFor="let r of ruoli" [value]="r" >{{r}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field  appearance="fill">
+        <mat-label>Sede</mat-label>
+        <mat-select [(ngModel)]="sede">
+          <mat-option *ngFor="let s of sedi" [value]="s" >{{s}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button class="color" (click)="onSubmit()" id="bottone">AGGIUNGI DIPENDENTE</button>
+    </div>
+<div class="tabella">
+<mat-form-field>
+    <mat-label>Ricerca</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Cerca" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table matSort [dataSource]="dataSource">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let row">{{row.nome}} </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="cognome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cognome </th>
+        <td mat-cell *matCellDef="let row">{{row.cognome}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let row">{{row.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
+        <td mat-cell *matCellDef="let row">{{row.password}} </td>
+      </ng-container>
+      <ng-container matColumnDef="ruolo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ruolo </th>
+        <td mat-cell *matCellDef="let row" >{{row.ruolo}}</td>
+      </ng-container>
+      <ng-container matColumnDef="stipendio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stipendio </th>
+        <td mat-cell *matCellDef="let row">{{row.stipendio}} </td>
+      </ng-container>
+      <ng-container matColumnDef="sede">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sede </th>
+        <td mat-cell *matCellDef="let row">{{row.sede}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let row" ><button mat-fab class="delete" (click)="delete(row.email)"><mat-icon>delete</mat-icon></button></td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Nessun risultato per "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Seleziona pagina di utenti"></mat-paginator>
+  </div>
+</div>
+
+

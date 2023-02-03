@@ -1,0 +1,37 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right bottom, rgba(33, 37, 41, 1), rgba(77, 81, 84, 1))
+  }
+
+  .text-muted {
+    --bs-text-opacity: 1;
+    color: #6c757d !important;
+  }
+
+  #modificaNumero{
+    position: relative;
+    border:0px;
+    background-color: white;
+    width: 5%;
+  }
+  #email{
+    position: relative;
+    top: 10px;
+  }
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+  }

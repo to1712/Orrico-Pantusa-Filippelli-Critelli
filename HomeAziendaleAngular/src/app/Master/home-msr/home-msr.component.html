@@ -1,0 +1,293 @@
+<div id="home" class="sb-nav-fixed">
+            <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+                <!-- Navbar Brand-->
+                <a class="navbar-brand ps-3" routerLink="/mns">TechnoVision</a>
+                <!-- Sidebar Toggle-->
+                <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+                <!-- Navbar Search-->
+                <!--<div class="input-group">
+                  <input class="form-control" type="text" placeholder="Cerca" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                  <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>-->
+                <form class="d-none d-md-inline-block ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+
+                  <a class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                    <a mat-button [matMenuTriggerFor]="menu" class="nav-link dropdown-toggle" role="button"><mat-icon>person</mat-icon></a>
+                    <mat-menu #menu="matMenu" class="matMenu">
+                    <a mat-menu-item class="logout" href="http://localhost:8080/views/doLogout">Logout</a>
+                  </mat-menu>
+                </a>
+
+                <!-- Navbar-->
+
+                  <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profilo</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="doLogout">Logout</a></li>
+                        </ul>
+                    </li>-->
+
+
+            </nav>
+            <div id="layoutSidenav">
+              <div id="layoutSidenav_nav" >
+                <app-barra-master (event)="riceviComponent($event)"></app-barra-master>
+            </div>
+            <div id="layoutSidenav_content">
+            <main>
+            <div [ngSwitch]=visualizza>
+              <ng-template *ngSwitchCase="''" [ngTemplateOutlet]="home"></ng-template>
+              <ng-template *ngSwitchCase="'lgs'" [ngTemplateOutlet]="logistica"></ng-template>
+              <ng-template *ngSwitchCase="'mns'" [ngTemplateOutlet]="amministrazione"></ng-template>
+              <ng-template *ngSwitchCase="'tsr'" [ngTemplateOutlet]="tesoreria"></ng-template>
+              <ng-template *ngSwitchCase="'aSpese'" [ngTemplateOutlet]="aSpese"></ng-template>
+              <ng-template *ngSwitchCase="'aIncassi'" [ngTemplateOutlet]="aIncassi"></ng-template>
+              <ng-template *ngSwitchCase="'aSA'" [ngTemplateOutlet]="aSA"></ng-template>
+              <ng-template *ngSwitchCase="'aSL'" [ngTemplateOutlet]="aSL"></ng-template>
+              <ng-template *ngSwitchCase="'aST'" [ngTemplateOutlet]="aST"></ng-template>
+              <ng-template *ngSwitchCase="'lFornitori'" [ngTemplateOutlet]="lF"></ng-template>
+              <ng-template *ngSwitchCase="'lMagazzino'" [ngTemplateOutlet]="lM"></ng-template>
+              <ng-template *ngSwitchCase="'lSpedizioni'" [ngTemplateOutlet]="lS"></ng-template>
+              <ng-template *ngSwitchCase="'tBilanci'" [ngTemplateOutlet]="tB"></ng-template>
+              <ng-template *ngSwitchCase="'tStipendi'" [ngTemplateOutlet]="tS"></ng-template>
+              <ng-template *ngSwitchCase="'dipendenti'" [ngTemplateOutlet]="D"></ng-template>
+              <ng-template *ngSwitchDefault [ngTemplateOutlet]="home"></ng-template>
+            </div>
+                  <ng-template #home>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <div class="container-fluid px-4">
+                      <h1 class="mt-4">Home</h1>
+                      <ol class="breadcrumb mb-4">
+                          <li class="breadcrumb-item active">Home</li>
+                      </ol>
+                    </div>
+                    <h2>Notizie Tecnologiche</h2>
+                    <div class="news-container">
+                      <div *ngFor="let article of articles['articles']">
+                        <div class="news-item">
+                          <h3>{{ article.title }}</h3>
+                          <p>{{ article.description }}</p>
+                          <a href="{{ article.url }}" target="_blank" class="read-more">Leggi l'articolo completo</a>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                  <ng-template #profilo>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-profilo></app-profilo>
+                  </ng-template>
+                  <ng-template #D>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-dipendenti></app-dipendenti>
+                  </ng-template>
+                  <!--Logistica-->
+                  <ng-template #logistica>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-m-logistica (event)="riceviComponent($event)"></app-m-logistica>
+                  </ng-template>
+                  <ng-template #lF>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-fornitori></app-fornitori>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='lgs'">INDIETRO</button>
+                  </ng-template>
+                  <ng-template #lM>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-magazzino></app-magazzino>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='lgs'">INDIETRO</button>
+                  </ng-template>
+                  <ng-template #lS>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-spedizioni></app-spedizioni>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='lgs'">INDIETRO</button>
+                  </ng-template>
+
+                   <!--Tesoreria-->
+                  <ng-template #tesoreria>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-m-tesoreria (event)="riceviComponent($event)" ></app-m-tesoreria>
+                  </ng-template>
+                  <ng-template #tB>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-bilancio></app-bilancio>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='tsr'">INDIETRO</button>
+                  </ng-template>
+                  <ng-template #tS>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-stipendi></app-stipendi>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='tsr'">INDIETRO</button>
+                  </ng-template>
+
+
+                  <!--Amministrazione-->
+                  <ng-template #amministrazione>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-m-amministrazione (event)="riceviComponent($event)"></app-m-amministrazione>
+                  </ng-template>
+                  <ng-template #aSpese>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-spese></app-spese>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='mns'">INDIETRO</button>
+                  </ng-template>
+                  <ng-template #aIncassi>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-incassi></app-incassi>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='mns'">INDIETRO</button>
+                  </ng-template>
+                  <ng-template #aSA>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      <source src="path/to/video.webm" type="video/webm">
+                      Il tuo browser non supporta il tag video.
+                    </video>
+                    <app-samministrazione></app-samministrazione>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='mns'">INDIETRO</button>
+                  </ng-template>
+                  <ng-template #aST>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                      
+                    </video>
+                    <app-stesoreria></app-stesoreria>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='mns'">INDIETRO</button>
+                  </ng-template>
+                  <ng-template #aSL>
+                    <video autoplay loop>
+                      <source src="assets/video.mp4" type="video/mp4">
+                    </video>
+                    <app-slogistica></app-slogistica>
+                    <button mat-raised-button style=" background-color: #343a40;
+                    color:white;
+                    margin: 30px 0;
+                    margin-left: 10px;
+                    font-size: 18px;
+                    width: 10%;
+                    height: 100%;" (click)="visualizza='mns'">INDIETRO</button>
+                  </ng-template>
+                </main>
+                    <footer class="py-4 bg-light mt-auto">
+                        <div class="container-fluid px-4">
+                            <div class="d-flex align-items-center justify-content-between small">
+                                <div class="text-muted">Copyright &copy; TechnoVision 2022</div>
+                                <div>
+                                    <a href="#">Privacy Policy</a>
+                                    &middot;
+                                    <a href="#">Terms &amp; Conditions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+</div>
+
+
+
+

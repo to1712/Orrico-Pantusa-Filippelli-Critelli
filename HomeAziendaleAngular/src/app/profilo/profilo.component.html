@@ -1,0 +1,67 @@
+
+<main>
+    <video autoplay loop>
+        <source src="assets/video.mp4" type="video/mp4">
+        <source src="path/to/video.webm" type="video/webm">
+        Il tuo browser non supporta il tag video.
+      </video>
+  <div class="container-fluid px-4">
+    <h1 class="mt-4">Profilo</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Profilo</li>
+    </ol>
+      <div class="container py-15 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col col-lg-16 mb-4 mb-lg-0">
+                  <div class="card mb-3" style="border-radius: .5rem;">
+                      <div class="row g-0">
+                          <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                              <img src="/assets/200.png"  class="img-fluid my-3" style="width: 200px; height: 150px;" />
+                              <h5>{{utente?.nome}} {{utente?.cognome}}</h5>
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card-body p-4">
+                                  <h6>Informazioni</h6>
+                                  <hr class="mt-0 mb-4">
+                                  <div class="row pt-1">
+                                      <div id="email" class="col-6 mb-3">
+                                          <h6>Email</h6>
+                                          <p class="text-muted">{{utente?.email}}</p>
+                                      </div>
+                                      <div class="col-6 mb-3">
+                                          <h6 >Telefono<button id="modificaNumero" mat-button (click)="cambiaNumero()"><mat-icon>edit</mat-icon></button></h6>
+                                          <!--<p class="text-muted">123 456 789<button>ciao</button></p>-->
+                                          <div *ngIf="modificabile; else displayOnly">
+                                            <mat-form-field appearance="fill">
+                                              <mat-label>Inserisci numero</mat-label>
+                                              <input matInput [(ngModel)] = "numero">
+                                            </mat-form-field>
+
+                                            <button mat-button id="modificaNumero" (click)="salvaNumero()"><mat-icon>done</mat-icon></button>
+                                          </div>
+                                          <ng-template #displayOnly>
+                                          <div class="text-muted">{{utente?.telefono}}</div>
+                                          </ng-template>
+                                      </div>
+                                  </div>
+                                  <hr class="mt-0 mb-4">
+                                  <div class="row pt-1">
+                                      <div class="col-6 mb-3">
+                                          <h6>Sede</h6>
+                                          <p class="text-muted">{{utente?.sede}}</p>
+                                      </div>
+                                      <div class="col-6 mb-3">
+                                          <h6>Stipendio</h6>
+                                          <p class="text-muted">€{{utente?.stipendio}}</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</main>
+

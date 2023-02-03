@@ -1,0 +1,25 @@
+<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <br><br><br>
+            <a class="nav-link" (click)="componentView('')">
+                <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                Home
+            </a>
+            <div class="sb-sidenav-menu-heading">Workspace</div>
+            <a class="nav-link" (click)="componentView('bil')" >
+                <div class="sb-nav-link-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                Bilancio
+            </a>
+
+            <a class="nav-link" (click)="componentView('sti')">
+                <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                Stipendi
+            </a>
+        </div>
+    </div>
+    <div class="sb-sidenav-footer">
+        <div class="small">Logged in as:</div>
+        Tesoreria
+    </div>
+</nav>

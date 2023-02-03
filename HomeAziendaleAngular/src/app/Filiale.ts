@@ -1,0 +1,30 @@
+export interface Filiale{
+    id:string;
+    citta:string;
+    incasso_gen:number;
+    incasso_feb:number;
+    incasso_mar:number;
+    incasso_apr:number;
+    incasso_mag:number;
+    incasso_giu:number;
+    incasso_lug:number;
+    incasso_ago:number;
+    incasso_set:number;
+    incasso_ott:number;
+    incasso_nov:number;
+    incasso_dic:number;
+    spese_gen:number;
+    spese_feb:number;
+    spese_mar:number;
+    spese_apr:number;
+    spese_mag:number;
+    spese_giu:number;
+    spese_lug:number;
+    spese_ago:number;
+    spese_set:number;
+    spese_ott:number;
+    spese_nov:number;
+    spese_dic:number;
+    bilancio:number;
+
+}

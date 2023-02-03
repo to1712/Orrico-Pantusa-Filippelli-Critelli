@@ -1,0 +1,80 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Spedizioni</h1>
+  <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item active">Effettua un ordine</li>
+  </ol>
+</div>
+<div class="container"></div>
+
+<div class="spedizioni">
+    <mat-form-field appearance="fill">
+        <mat-label>Prodotto</mat-label>
+        <mat-select [(ngModel)]="prod" (selectionChange)="prodottoSelezionato($event)">
+          <mat-option *ngFor="let pro of magazzino" [value]="pro.id_prodotto" >{{pro.id_prodotto}}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Fornitore</mat-label>
+      <mat-select [(ngModel)]="forn">
+        <mat-option  *ngFor="let f of fornitoriProdotto" [value]="f">{{f}}</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Filiale</mat-label>
+        <mat-select [(ngModel)]="fil">
+          <mat-option *ngFor="let fi of filiale" [value]="fi.id">{{fi.id}}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+      <mat-form-field  appearance="fill">
+        <mat-label>Inserisci quantità</mat-label>
+        <input [(ngModel)]="qta" matInput #input  placeholder="Quantità">
+
+      </mat-form-field>
+      <button id="bottone" mat-raised-button class="color" (click)="onSubmit()">SPEDISCI</button>
+   </div>
+
+   <div class="tabella">
+    <mat-form-field>
+        <mat-label>Ricerca</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Cerca" #input>
+      </mat-form-field>
+
+      <div class="mat-elevation-z8">
+        <table mat-table matSort [dataSource]="dataSource">
+          <ng-container matColumnDef="prodotto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Prodotto </th>
+            <td mat-cell  *matCellDef="let row">{{row.prodotto}} </td>
+          </ng-container>
+          <ng-container matColumnDef="fornitore">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fornitore </th>
+            <td mat-cell  *matCellDef="let row">{{row.fornitore}} </td>
+          </ng-container>
+          <ng-container matColumnDef="filiale">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Filiale </th>
+            <td mat-cell  *matCellDef="let row">{{row.filiale}} </td>
+          </ng-container>
+          <ng-container matColumnDef="qta">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantità </th>
+            <td mat-cell *matCellDef="let row">{{row.qta}} </td>
+          </ng-container>
+          <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Data e Ora </th>
+            <td mat-cell *matCellDef="let row">{{row.data}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Nessun risultato per "{{input.value}}"</td>
+          </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Seleziona pagina di utenti"></mat-paginator>
+      </div>
+    </div>
+

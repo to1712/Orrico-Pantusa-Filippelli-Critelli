@@ -1,0 +1,45 @@
+table {
+    width: 100%;
+  }
+.container{
+    justify-items: center;
+    width: 100%;
+}
+.aggiungi{
+    margin: auto;
+    width: 50%;
+}
+.tabella{
+    margin: auto;
+    width: 70%;
+    margin-bottom: 5%;
+}
+#bottone{
+    display: block;
+    margin: auto;
+
+}
+  .mat-elevation-z8{
+  overflow-x:auto;
+  width: 100%;
+  }
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td, th {
+    width: 25%;
+  }
+
+  .color{
+    background-color: #343a40;
+    color:white;
+    margin: 30px 0;
+    font-size: 15px;
+    width: 50%;
+    height: 100%;
+}
+
+
+
